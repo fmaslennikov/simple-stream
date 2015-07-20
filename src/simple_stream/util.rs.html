@@ -204,12 +204,6 @@
 <span id="162">162</span>
 <span id="163">163</span>
 <span id="164">164</span>
-<span id="165">165</span>
-<span id="166">166</span>
-<span id="167">167</span>
-<span id="168">168</span>
-<span id="169">169</span>
-<span id="170">170</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -262,11 +256,6 @@
     <span class='doccomment'>/// The file descriptor fd refers to a file other than a socket and has been</span>
     <span class='doccomment'>/// marked nonblocking (O_NONBLOCK), and the read would block.</span>
     <span class='ident'>EAGAIN</span>,
-    <span class='doccomment'>/// The file descriptor fd refers to a socket and has been marked nonblocking (O_NONBLOCK),</span>
-    <span class='doccomment'>/// and the read would block. POSIX.1-2001 allows either error to be returned for this case,</span>
-    <span class='doccomment'>/// and does not require these constants to have the same value, so a portable application</span>
-    <span class='doccomment'>/// should check for both possibilities.</span>
-    <span class='ident'>EWOULDBLOCK</span>,
     <span class='doccomment'>/// fd is not a valid file descriptor or is not open for reading.</span>
     <span class='ident'>EBADF</span>,
     <span class='doccomment'>/// buf is outside your accessible address space.</span>
@@ -351,7 +340,6 @@
         <span class='kw'>match</span> <span class='op'>*</span><span class='self'>self</span> {
             <span class='ident'>ReadError</span>::<span class='ident'>ENOMEM</span> <span class='op'>=&gt;</span> <span class='string'>&quot;ENOMEM&quot;</span>.<span class='ident'>fmt</span>(<span class='ident'>f</span>),
             <span class='ident'>ReadError</span>::<span class='ident'>EAGAIN</span> <span class='op'>=&gt;</span> <span class='string'>&quot;EAGAIN&quot;</span>.<span class='ident'>fmt</span>(<span class='ident'>f</span>),
-            <span class='ident'>ReadError</span>::<span class='ident'>EWOULDBLOCK</span> <span class='op'>=&gt;</span> <span class='string'>&quot;EWOULDBLOCK&quot;</span>.<span class='ident'>fmt</span>(<span class='ident'>f</span>),
             <span class='ident'>ReadError</span>::<span class='ident'>EBADF</span> <span class='op'>=&gt;</span> <span class='string'>&quot;EBADF&quot;</span>.<span class='ident'>fmt</span>(<span class='ident'>f</span>),
             <span class='ident'>ReadError</span>::<span class='ident'>EFAULT</span> <span class='op'>=&gt;</span> <span class='string'>&quot;EFAULT&quot;</span>.<span class='ident'>fmt</span>(<span class='ident'>f</span>),
             <span class='ident'>ReadError</span>::<span class='ident'>EINTR</span> <span class='op'>=&gt;</span> <span class='string'>&quot;EINTR&quot;</span>.<span class='ident'>fmt</span>(<span class='ident'>f</span>),

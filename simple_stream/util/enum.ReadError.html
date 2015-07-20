@@ -45,11 +45,10 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-172' class='srclink' href='../../src/simple_stream/util.rs.html#46-79' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-172' class='srclink' href='../../src/simple_stream/util.rs.html#46-74' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum ReadError {
     ENOMEM,
     EAGAIN,
-    EWOULDBLOCK,
     EBADF,
     EFAULT,
     EINTR,
@@ -61,10 +60,6 @@
 <table><tr><td id='variant.ENOMEM'><code>ENOMEM</code></td><td><div class='docblock'><p>System is out of memory</p>
 </div></td></tr><tr><td id='variant.EAGAIN'><code>EAGAIN</code></td><td><div class='docblock'><p>The file descriptor fd refers to a file other than a socket and has been
 marked nonblocking (O_NONBLOCK), and the read would block.</p>
-</div></td></tr><tr><td id='variant.EWOULDBLOCK'><code>EWOULDBLOCK</code></td><td><div class='docblock'><p>The file descriptor fd refers to a socket and has been marked nonblocking (O_NONBLOCK),
-and the read would block. POSIX.1-2001 allows either error to be returned for this case,
-and does not require these constants to have the same value, so a portable application
-should check for both possibilities.</p>
 </div></td></tr><tr><td id='variant.EBADF'><code>EBADF</code></td><td><div class='docblock'><p>fd is not a valid file descriptor or is not open for reading.</p>
 </div></td></tr><tr><td id='variant.EFAULT'><code>EFAULT</code></td><td><div class='docblock'><p>buf is outside your accessible address space.</p>
 </div></td></tr><tr><td id='variant.EINTR'><code>EINTR</code></td><td><div class='docblock'><p>The call was interrupted by a signal before any data was read; see signal(7).</p>
