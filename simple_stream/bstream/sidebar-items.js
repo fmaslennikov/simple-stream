@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Bstream",""]],"type":[["ReadResult","Represents the result of attempting a read on the underlying file descriptor"],["WriteResult","Represents the result attempting a write on the underlying fild descriptor"]]});

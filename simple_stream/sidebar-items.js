@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["message","Message crate."],["nbetstream","NbetStream module."],["readbuffer","ReadBuffer crate."]]});
+initSidebarItems({"mod":[["bstream","Bstream module. This is a blocking stream designed to block on read/write until"],["message","Message crate."],["nbetstream","NbetStream module. This is a Non-blocking file descriptor stream designed to be used with Linux epoll in EdgeTriggered mode."],["readbuffer","ReadBuffer crate."]]});

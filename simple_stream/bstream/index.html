@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `WriteResult` type in crate `simple_stream`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, WriteResult">
+    <meta name="description" content="API documentation for the Rust `bstream` mod in crate `simple_stream`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, bstream">
 
-    <title>simple_stream::nbetstream::WriteResult - Rust</title>
+    <title>simple_stream::bstream - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
@@ -26,7 +26,7 @@
 
     <section class="sidebar">
         
-        <p class='location'><a href='../index.html'>simple_stream</a>::<wbr><a href='index.html'>nbetstream</a></p><script>window.sidebarCurrent = {name: 'WriteResult', ty: 'type', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>simple_stream</a></p><script>window.sidebarCurrent = {name: 'bstream', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </section>
 
     <nav class="sub">
@@ -40,14 +40,43 @@
         </form>
     </nav>
 
-    <section id='main' class="content type">
-<h1 class='fqn'><span class='in-band'><a href='../index.html'>simple_stream</a>::<wbr><a href='index.html'>nbetstream</a>::<wbr><a class='type' href=''>WriteResult</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>simple_stream</a>::<wbr><a class='mod' href=''>bstream</a></span><span class='out-of-band'><span id='render-detail'>
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1483' class='srclink' href='../../src/simple_stream/nbetstream/mod.rs.html#49' title='goto source code'>[src]</a></span></h1>
-<pre class='rust typedef'>type WriteResult = <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>, <a class='enum' href='../../simple_stream/nbetstream/util/enum.WriteError.html' title='simple_stream::nbetstream::util::WriteError'>WriteError</a>&gt;;</pre><div class='docblock'><p>Represents the result attempting a write on the underlying fild descriptor</p>
-</div></section>
+        </span><a id='src-344' class='srclink' href='../../src/simple_stream/bstream/mod.rs.html#15-120' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Bstream module.
+This is a blocking stream designed to block on read/write until</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.Bstream.html'
+                               title='simple_stream::bstream::Bstream'>Bstream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.ReadResult.html'
+                               title='simple_stream::bstream::ReadResult'>ReadResult</a></td>
+                        <td class='docblock short'>
+                             <p>Represents the result of attempting a read on the underlying file descriptor</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.WriteResult.html'
+                               title='simple_stream::bstream::WriteResult'>WriteResult</a></td>
+                        <td class='docblock short'>
+                             <p>Represents the result attempting a write on the underlying fild descriptor</p>
+
+                        </td>
+                    </tr>
+                </table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
