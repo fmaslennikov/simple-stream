@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `simple_stream` crate.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, simple_stream">
+    <meta name="description" content="API documentation for the Rust `nbetstream` mod in crate `simple_stream`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, nbetstream">
 
-    <title>simple_stream - Rust</title>
+    <title>simple_stream::nbetstream - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
     
@@ -26,7 +26,7 @@
 
     <section class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'simple_stream', ty: 'mod', relpath: '../'};</script>
+        <p class='location'><a href='../index.html'>simple_stream</a></p><script>window.sidebarCurrent = {name: 'nbetstream', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </section>
 
     <nav class="sub">
@@ -41,37 +41,56 @@
     </nav>
 
     <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>simple_stream</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>simple_stream</a>::<wbr><a class='mod' href=''>nbetstream</a></span><span class='out-of-band'><span id='render-detail'>
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/simple_stream/lib.rs.html#15-28' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>SimpleStream crate.</p>
+        </span><a id='src-346' class='srclink' href='../../src/simple_stream/nbetstream/mod.rs.html#15-281' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>NbetStream module.</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='mod' href='message/index.html'
-                               title='simple_stream::message'>message</a></td>
+                        <td><a class='mod' href='util/index.html'
+                               title='simple_stream::nbetstream::util'>util</a></td>
                         <td class='docblock short'>
-                             <p>Message crate.</p>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.NbetStream.html'
+                               title='simple_stream::nbetstream::NbetStream'>NbetStream</a></td>
+                        <td class='docblock short'>
+                             <p>Struct representing a simple messaging protocol over Tcp sockets</p>
+
+                        </td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.CreateResult.html'
+                               title='simple_stream::nbetstream::CreateResult'>CreateResult</a></td>
+                        <td class='docblock short'>
+                             <p>Represents the result of trying to create a new NbetStream</p>
 
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='mod' href='nbetstream/index.html'
-                               title='simple_stream::nbetstream'>nbetstream</a></td>
+                        <td><a class='type' href='type.ReadResult.html'
+                               title='simple_stream::nbetstream::ReadResult'>ReadResult</a></td>
                         <td class='docblock short'>
-                             <p>NbetStream module.</p>
+                             <p>Represents the result of attempting a read on the underlying file descriptor</p>
 
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='mod' href='readbuffer/index.html'
-                               title='simple_stream::readbuffer'>readbuffer</a></td>
+                        <td><a class='type' href='type.WriteResult.html'
+                               title='simple_stream::nbetstream::WriteResult'>WriteResult</a></td>
                         <td class='docblock short'>
-                             <p>ReadBuffer crate.</p>
+                             <p>Represents the result attempting a write on the underlying fild descriptor</p>
 
                         </td>
                     </tr>
@@ -118,13 +137,13 @@
     
 
     <script>
-        window.rootPath = "../";
+        window.rootPath = "../../";
         window.currentCrate = "simple_stream";
         window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script async src="../../search-index.js"></script>
 </body>
 </html>

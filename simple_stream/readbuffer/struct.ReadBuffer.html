@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-677' class='srclink' href='../../src/simple_stream/readbuffer.rs.html#21-30' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-60' class='srclink' href='../../src/simple_stream/readbuffer.rs.html#21-30' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct ReadBuffer {
     // some fields omitted
 }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../simple_stream/readbuffer/struct.ReadBuffer.html' title='simple_stream::readbuffer::ReadBuffer'>ReadBuffer</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../../simple_stream/readbuffer/struct.ReadBuffer.html' title='simple_stream::readbuffer::ReadBuffer'>ReadBuffer</a></code></h4>
@@ -65,7 +65,7 @@
 to default state</p>
 </div><h4 id='method.queue_len' class='method'><code>fn <a href='#method.queue_len' class='fnname'>queue_len</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
 <div class='docblock'><p>Returns the length of internal message queue</p>
-</div><h4 id='method.queue_as_mut' class='method'><code>fn <a href='#method.queue_as_mut' class='fnname'>queue_as_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;Message&gt;</code></h4>
+</div><h4 id='method.queue_as_mut' class='method'><code>fn <a href='#method.queue_as_mut' class='fnname'>queue_as_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../simple_stream/message/struct.Message.html' title='simple_stream::message::Message'>Message</a>&gt;</code></h4>
 <div class='docblock'><p>Returns a mutable reference to the internal message queue</p>
 </div><h4 id='method.drain_queue' class='method'><code>fn <a href='#method.drain_queue' class='fnname'>drain_queue</a>(&amp;mut self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;&gt;</code></h4>
 <div class='docblock'><p>Drains the queue returning a Vec<Vec<u8>&gt; representing each payload</p>
