@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1112' class='srclink' href='../../../src/simple_stream/nbetstream/util.rs.html#77-113' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-1237' class='srclink' href='../../../src/simple_stream/nbetstream/util.rs.html#76-115' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum WriteError {
     EAGAIN,
     EWOULDBLOCK,
@@ -59,6 +59,7 @@
     EIO,
     ENOSPC,
     EPIPE,
+    ECONNRESET,
 }</pre><h2 class='variants'>Variants</h2>
 <table><tr><td id='variant.EAGAIN'><code>EAGAIN</code></td><td><div class='docblock'><p>The file descriptor fd refers to a file other than a socket and has been
 marked nonblocking (O_NONBLOCK), and the write would block.</p>
@@ -83,6 +84,8 @@ in count, or the current file offset is not suitably aligned.</p>
 </div></td></tr><tr><td id='variant.EPIPE'><code>EPIPE</code></td><td><div class='docblock'><p>fd is connected to a pipe or socket whose reading end is closed. When this happens
 the writing process will also receive a SIGPIPE signal. (Thus, the write return value
 is seen only if the program catches, blocks or ignores this signal.)</p>
+</div></td></tr><tr><td id='variant.ECONNRESET'><code>ECONNRESET</code></td><td><div class='docblock'><p>fd is connected to a TCP socket where the other end has been closed, but the write
+command has not had enough time to finish writing to the internal buffer</p>
 </div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../../../simple_stream/nbetstream/util/enum.WriteError.html' title='simple_stream::nbetstream::util::WriteError'>WriteError</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../simple_stream/nbetstream/util/enum.WriteError.html' title='simple_stream::nbetstream::util::WriteError'>WriteError</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../simple_stream/nbetstream/util/enum.WriteError.html' title='simple_stream::nbetstream::util::WriteError'>WriteError</a></code></h4>
 <h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>

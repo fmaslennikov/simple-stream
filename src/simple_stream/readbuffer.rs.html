@@ -144,6 +144,18 @@
 <span id="102">102</span>
 <span id="103">103</span>
 <span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -153,10 +165,6 @@
 <span class='comment'>// distributed with this file, You can</span>
 <span class='comment'>// obtain one at</span>
 <span class='comment'>// http://mozilla.org/MPL/2.0/.</span>
-<span class='comment'>//</span>
-<span class='comment'>// This Source Code Form is &quot;Incompatible</span>
-<span class='comment'>// With Secondary Licenses&quot;, as defined by</span>
-<span class='comment'>// the Mozilla Public License, v. 2.0.</span>
 
 
 <span class='doccomment'>//! ReadBuffer crate.</span>
@@ -222,6 +230,7 @@
     <span class='doccomment'>/// Pushes the current message into the buffer&#39;s message queue and resets</span>
     <span class='doccomment'>/// to default state</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>reset</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) {
+        <span class='self'>self</span>.<span class='ident'>c_msg</span>.<span class='ident'>payload</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>c_buffer</span>.<span class='ident'>clone</span>();
         <span class='self'>self</span>.<span class='ident'>queue</span>.<span class='ident'>push</span>(<span class='self'>self</span>.<span class='ident'>c_msg</span>.<span class='ident'>clone</span>());
         <span class='self'>self</span>.<span class='ident'>c_msg</span> <span class='op'>=</span> <span class='ident'>Message</span>::<span class='ident'>new</span>();
         <span class='self'>self</span>.<span class='ident'>c_remaining</span> <span class='op'>=</span> <span class='number'>2u16</span>;
@@ -240,12 +249,27 @@
 
     <span class='doccomment'>/// Drains the queue returning a Vec&lt;Vec&lt;u8&gt;&gt; representing each payload</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>drain_queue</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;&gt;</span> {
+        <span class='comment'>// let mut buffer = Vec::&lt;Vec&lt;u8&gt;&gt;::with_capacity(self.queue.len());</span>
+        <span class='comment'>// unsafe {</span>
+        <span class='comment'>//     buffer.set_len(self.queue.len());</span>
+        <span class='comment'>// }</span>
+        <span class='comment'>// let mut pos = (self.queue.len() - 1) as isize;</span>
+        <span class='comment'>// while let Some(msg) = self.queue.pop() {</span>
+        <span class='comment'>//     buffer.insert(pos as usize, msg.payload);</span>
+        <span class='comment'>//     pos -= 1;</span>
+        <span class='comment'>// }</span>
+        <span class='comment'>// buffer</span>
+
+        <span class='comment'>// FIXME - This is the worst.</span>
+        <span class='comment'>// I think something is wrong with the code above, so this is</span>
+        <span class='comment'>// the current, slow, approach</span>
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffer</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;&gt;</span>::<span class='ident'>with_capacity</span>(<span class='self'>self</span>.<span class='ident'>queue</span>.<span class='ident'>len</span>());
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>pos</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>queue</span>.<span class='ident'>len</span>() <span class='op'>-</span> <span class='number'>1</span>;
-        <span class='kw'>while</span> <span class='kw'>let</span> <span class='prelude-val'>Some</span>(<span class='ident'>msg</span>) <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>queue</span>.<span class='ident'>pop</span>() {
-            <span class='ident'>buffer</span>.<span class='ident'>insert</span>(<span class='ident'>pos</span>, <span class='ident'>msg</span>.<span class='ident'>payload</span>);
-            <span class='ident'>pos</span> <span class='op'>-=</span> <span class='number'>1</span>;
+        <span class='kw'>for</span> <span class='ident'>msg</span> <span class='kw'>in</span> <span class='self'>self</span>.<span class='ident'>queue</span>.<span class='ident'>iter</span>() {
+            <span class='kw'>let</span> <span class='ident'>payload</span> <span class='op'>=</span> <span class='ident'>msg</span>.<span class='ident'>payload</span>.<span class='ident'>clone</span>();
+            <span class='ident'>buffer</span>.<span class='ident'>push</span>(<span class='ident'>payload</span>);
         }
+
+        <span class='self'>self</span>.<span class='ident'>queue</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='op'>&lt;</span><span class='ident'>Message</span><span class='op'>&gt;</span>::<span class='ident'>new</span>();
         <span class='ident'>buffer</span>
     }
 }

@@ -321,8 +321,6 @@
 <span id="279">279</span>
 <span id="280">280</span>
 <span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -332,10 +330,6 @@
 <span class='comment'>// distributed with this file, You can</span>
 <span class='comment'>// obtain one at</span>
 <span class='comment'>// http://mozilla.org/MPL/2.0/.</span>
-<span class='comment'>//</span>
-<span class='comment'>// This Source Code Form is &quot;Incompatible</span>
-<span class='comment'>// With Secondary Licenses&quot;, as defined by</span>
-<span class='comment'>// the Mozilla Public License, v. 2.0.</span>
 
 
 <span class='doccomment'>//! NbetStream module.</span>
@@ -499,6 +493,7 @@
                 <span class='ident'>posix88</span>::<span class='ident'>EINVAL</span>         <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>ReadError</span>::<span class='ident'>EINVAL</span>),
                 <span class='ident'>posix88</span>::<span class='ident'>EIO</span>            <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>ReadError</span>::<span class='ident'>EIO</span>),
                 <span class='ident'>posix88</span>::<span class='ident'>EISDIR</span>         <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>ReadError</span>::<span class='ident'>EISDIR</span>),
+                <span class='ident'>posix88</span>::<span class='ident'>ECONNRESET</span>     <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>ReadError</span>::<span class='ident'>ECONNRESET</span>),
 
                 <span class='comment'>// These two constants can have the same value on some systems,</span>
                 <span class='comment'>// but different values on others, so we can&#39;t use a match</span>
@@ -572,6 +567,7 @@
                 <span class='ident'>posix88</span>::<span class='ident'>EIO</span>            <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>WriteError</span>::<span class='ident'>EIO</span>),
                 <span class='ident'>posix88</span>::<span class='ident'>ENOSPC</span>         <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>WriteError</span>::<span class='ident'>ENOSPC</span>),
                 <span class='ident'>posix88</span>::<span class='ident'>EPIPE</span>          <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>WriteError</span>::<span class='ident'>EPIPE</span>),
+                <span class='ident'>posix88</span>::<span class='ident'>ECONNRESET</span>     <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>WriteError</span>::<span class='ident'>ECONNRESET</span>),
 
                 <span class='comment'>// These two constants can have the same value on some systems,</span>
                 <span class='comment'>// but different values on others, so we can&#39;t use a match</span>

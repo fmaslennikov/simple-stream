@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-966' class='srclink' href='../../../src/simple_stream/nbetstream/util.rs.html#46-74' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-1079' class='srclink' href='../../../src/simple_stream/nbetstream/util.rs.html#42-73' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum ReadError {
     ENOMEM,
     EAGAIN,
@@ -56,6 +56,7 @@
     EIO,
     EISDIR,
     EOF,
+    ECONNRESET,
 }</pre><h2 class='variants'>Variants</h2>
 <table><tr><td id='variant.ENOMEM'><code>ENOMEM</code></td><td><div class='docblock'><p>System is out of memory</p>
 </div></td></tr><tr><td id='variant.EAGAIN'><code>EAGAIN</code></td><td><div class='docblock'><p>The file descriptor fd refers to a file other than a socket and has been
@@ -75,6 +76,8 @@ blocking SIGTTIN or its process group is orphaned. It may also occur when there
 is a low-level I/O error while reading from a disk or tape.</p>
 </div></td></tr><tr><td id='variant.EISDIR'><code>EISDIR</code></td><td><div class='docblock'><p>fd refers to a directory.</p>
 </div></td></tr><tr><td id='variant.EOF'><code>EOF</code></td><td><div class='docblock'><p>End of file has been reached. No more can be read from this socket.</p>
+</div></td></tr><tr><td id='variant.ECONNRESET'><code>ECONNRESET</code></td><td><div class='docblock'><p>fd is connected to a TCP socket where the other end has been closed, but the write
+command has not had enough time to finish writing to the internal buffer</p>
 </div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../../../simple_stream/nbetstream/util/enum.ReadError.html' title='simple_stream::nbetstream::util::ReadError'>ReadError</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../simple_stream/nbetstream/util/enum.ReadError.html' title='simple_stream::nbetstream::util::ReadError'>ReadError</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../simple_stream/nbetstream/util/enum.ReadError.html' title='simple_stream::nbetstream::util::ReadError'>ReadError</a></code></h4>
 <h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
