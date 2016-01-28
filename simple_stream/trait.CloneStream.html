@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `plain` mod in crate `simple_stream`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, plain">
+    <meta name="description" content="API documentation for the Rust `CloneStream` trait in crate `simple_stream`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CloneStream">
 
-    <title>simple_stream::nonblocking::plain - Rust</title>
+    <title>simple_stream::CloneStream - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
 
     
     
@@ -27,7 +27,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../../index.html'>simple_stream</a>::<wbr><a href='../index.html'>nonblocking</a></p><script>window.sidebarCurrent = {name: 'plain', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'><a href='index.html'>simple_stream</a></p><script>window.sidebarCurrent = {name: 'CloneStream', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,22 +41,24 @@
         </form>
     </nav>
 
-    <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>simple_stream</a>::<wbr><a href='../index.html'>nonblocking</a>::<wbr><a class='mod' href=''>plain</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>simple_stream</a>::<wbr><a class='trait' href=''>CloneStream</a></span><span class='out-of-band'><span id='render-detail'>
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-277' class='srclink' href='../../../src/simple_stream/nonblocking/plain.rs.html#9-244' title='goto source code'>[src]</a></span></h1>
-<h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.Plain.html'
-                               title='simple_stream::nonblocking::plain::Plain'>Plain</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                </table></section>
+        </span><a id='src-671' class='srclink' href='../src/simple_stream/stream.rs.html#69-71' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait CloneStream {
+    fn <a href='#tymethod.clone_stream' class='fnname'>clone_stream</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../simple_stream/trait.SStream.html' title='simple_stream::SStream'>SStream</a>&gt;;
+}</pre><div class='docblock'><p>The <code>CloneStream</code> trait allows for specialized cloning of trait objects.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.clone_stream' class='method stab '><code>fn <a href='#tymethod.clone_stream' class='fnname'>clone_stream</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../simple_stream/trait.SStream.html' title='simple_stream::SStream'>SStream</a>&gt;</code></h3></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                              src="../implementors/simple_stream/trait.CloneStream.js">
+                      </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -108,13 +110,13 @@
     
 
     <script>
-        window.rootPath = "../../../";
+        window.rootPath = "../";
         window.currentCrate = "simple_stream";
         window.playgroundUrl = "";
     </script>
-    <script src="../../../jquery.js"></script>
-    <script src="../../../main.js"></script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
     
-    <script defer src="../../../search-index.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>
