@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Socket",""]],"trait":[["TcpOptions","The `TcpOptions` trait allows for various TCP setting used in syscalls throughout Unix-like kernels."]]});
+initSidebarItems({"struct":[["Socket","Wrapper for file descriptor based sockets"]],"trait":[["SocketOptions","The `SocketOptions` trait allows for various socket level settings."],["TcpOptions","The `TcpOptions` trait allows for various TCP level settings."]]});

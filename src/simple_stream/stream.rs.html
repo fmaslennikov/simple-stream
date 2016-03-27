@@ -169,6 +169,10 @@
 <span id="126">126</span>
 <span id="127">127</span>
 <span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -247,6 +251,7 @@
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>SStream</span>: <span class='ident'>SRecv</span> <span class='op'>+</span> <span class='ident'>SSend</span> <span class='op'>+</span> <span class='ident'>StreamShutdown</span> <span class='op'>+</span> <span class='ident'>CloneStream</span> <span class='op'>+</span> <span class='ident'>AsRawFd</span> {}
 
 
+<span class='doccomment'>/// Generic wrapper for anything implementing the `SStream` trait</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Stream</span> {
     <span class='ident'>inner</span>: <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>SStream</span><span class='op'>&gt;</span>
 }
@@ -298,6 +303,9 @@
         <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='self'>self</span>.<span class='ident'>clone</span>())
     }
 }
+
+<span class='kw'>unsafe</span> <span class='kw'>impl</span> <span class='ident'>Send</span> <span class='kw'>for</span> <span class='ident'>Stream</span> {}
+<span class='kw'>unsafe</span> <span class='kw'>impl</span> <span class='ident'>Sync</span> <span class='kw'>for</span> <span class='ident'>Stream</span> {}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

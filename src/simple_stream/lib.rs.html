@@ -138,7 +138,7 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! ## Usage</span>
 <span class='doccomment'>//!</span>
-<span class='doccomment'>//! ~~~rust</span>
+<span class='doccomment'>//! ```no_run</span>
 <span class='doccomment'>//! extern crate simple_stream as ss;</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! use std::net::TcpStream;</span>
@@ -180,12 +180,12 @@
 <span class='doccomment'>//!             }</span>
 <span class='doccomment'>//!         }</span>
 <span class='doccomment'>//!         Err(e) =&gt; {</span>
-<span class='doccomment'>//!             println!(&quot;Error during write: {}&quot;, e);</span>
+<span class='doccomment'>//!             println!(&quot;Error during read: {}&quot;, e);</span>
 <span class='doccomment'>//!             stream.shutdown().unwrap();</span>
 <span class='doccomment'>//!         }</span>
 <span class='doccomment'>//!     }</span>
 <span class='doccomment'>//! }</span>
-<span class='doccomment'>//! ~~~</span>
+<span class='doccomment'>//! ```</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! [e]: https://nathansizemore.github.io/simple-stream/simple_stream/stream/trait.SStream.html</span>
 <span class='doccomment'>//! [r]: https://github.com/sfackler/rust-openssl</span>

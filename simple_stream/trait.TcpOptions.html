@@ -46,17 +46,19 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-712' class='srclink' href='../src/simple_stream/socket.rs.html#23-28' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-610' class='srclink' href='../src/simple_stream/socket.rs.html#22-30' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait TcpOptions {
-    fn <a href='#tymethod.set_tcp_keepalive' class='fnname'>set_tcp_keepalive</a>(&amp;mut self, keepalive: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;;
     fn <a href='#tymethod.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;mut self, nodelay: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;;
-}</pre><div class='docblock'><p>The <code>TcpOptions</code> trait allows for various TCP setting used in syscalls
-throughout Unix-like kernels.</p>
+}</pre><div class='docblock'><p>The <code>TcpOptions</code> trait allows for various TCP level settings.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.set_tcp_keepalive' class='method stab '><code>fn <a href='#tymethod.set_tcp_keepalive' class='fnname'>set_tcp_keepalive</a>(&amp;mut self, keepalive: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Sets the <code>SO_KEEPALIVE</code> flag to <code>keepalive</code> on this socket.</p>
-</div><h3 id='tymethod.set_tcp_nodelay' class='method stab '><code>fn <a href='#tymethod.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;mut self, nodelay: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Sets the <code>TCP_NODELAY</code> flag to <code>nodelay</code> on this socket.</p>
+        <h3 id='tymethod.set_tcp_nodelay' class='method stab '><code>fn <a href='#tymethod.set_tcp_nodelay' class='fnname'>set_tcp_nodelay</a>(&amp;mut self, nodelay: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>If set, disable the Nagle algorithm. This means that segments are always sent as soon as
+possible, even if there is only a small amount of data. When not set, data is buffered
+until there is a sufficient amount to send out, thereby avoiding the frequent sending of
+small packets, which results in poor utilization of the network. This option is
+overridden by TCP_CORK; however, setting this option forces an explicit flush of pending
+output, even if TCP_CORK is currently set.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
