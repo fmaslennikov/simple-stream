@@ -62,6 +62,29 @@
 <span id="19">19</span>
 <span id="20">20</span>
 <span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -71,18 +94,41 @@
 <span class='comment'>// http://mozilla.org/MPL/2.0/.</span>
 
 
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>any</span>::<span class='ident'>Any</span>;
+<span class='doccomment'>//! The `simple_stream::fame` module contains Trait definitions and built-in types for coupling</span>
+<span class='doccomment'>//! with a stream type to provides a structred way to send and receive message through streams.</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! # Frame and FrameBuilder</span>
+<span class='doccomment'>//!</span>
+<span class='doccomment'>//! A `Frame` is the unit that streams operate on. Frames are used to ensure a complete piece of</span>
+<span class='doccomment'>//! information has been received and that complete pieces of information are sent without</span>
+<span class='doccomment'>//! fragmentation. A `FrameBuilder` is used by the stream types to construct a `Frame` from a</span>
+<span class='doccomment'>//! chunk of bytes.</span>
 
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>simple</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>websocket</span>;
 
-
-<span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>Frame</span> {
-    <span class='kw'>fn</span> <span class='ident'>new</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>Any</span><span class='op'>&gt;</span>(<span class='ident'>buf</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>args</span>: <span class='kw-2'>&amp;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='kw'>Self</span>;
+<span class='doccomment'>/// The Frame trait allows for type construction/destruction to/from a chunk of bytes.</span>
+<span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>Frame</span>: <span class='ident'>Sync</span> <span class='op'>+</span> <span class='ident'>Send</span> {
+    <span class='doccomment'>/// Transforms this type into a `Vec&lt;u8&gt;` in order to send through a stream.</span>
     <span class='kw'>fn</span> <span class='ident'>to_bytes</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>;
-    <span class='kw'>fn</span> <span class='ident'>from_bytes</span>(<span class='ident'>buf</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Box</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>;
+    <span class='doccomment'>/// Returns the paylaod data section of this `Frame`</span>
+    <span class='kw'>fn</span> <span class='ident'>payload</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>;
+    <span class='doccomment'>/// Returns the total length of the frame as if `to_bytes().len()` was called.</span>
     <span class='kw'>fn</span> <span class='ident'>len_as_vec</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span>;
+    <span class='doccomment'>/// Returns a `*mut ()` to the underlying frame in order to cast to/from a specific</span>
+    <span class='doccomment'>/// type from the Trait Object returned from stream reads.</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// It is up to the caller of this method to take care of the cleanup required of the specific</span>
+    <span class='doccomment'>/// type the pointer was cast to (E.g. by calling `Box::from_raw(ptr)&#39;).</span>
+    <span class='kw'>fn</span> <span class='ident'>as_mut_raw_erased</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> ();
+}
+
+<span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>FrameBuilder</span> {
+    <span class='doccomment'>/// Given a `&amp;mut Vec&lt;u8&gt;`, this function should return a Frame Trait Object, if possible,</span>
+    <span class='doccomment'>/// created from the bytes in `buf`. On success this method should remove all bytes that</span>
+    <span class='doccomment'>/// were used during the creation of the returned frame, from `buf`.</span>
+    <span class='kw'>fn</span> <span class='ident'>from_bytes</span>(<span class='ident'>buf</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>Frame</span><span class='op'>&gt;&gt;</span>;
 }
 </pre>
 </section>

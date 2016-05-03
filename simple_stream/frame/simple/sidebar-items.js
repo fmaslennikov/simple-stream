@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["SimpleFrame",""]]});
+initSidebarItems({"struct":[["SimpleFrame",""],["SimpleFrameBuilder",""]]});

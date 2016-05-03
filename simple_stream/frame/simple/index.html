@@ -46,11 +46,9 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-17' class='srclink' href='../../../src/simple_stream/src/frame/simple.rs.html#9-137' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>The frame module provides a structred way to send and receive
-message through streams.</p>
-
-<h2 id='data-framing' class='section-header'><a href='#data-framing'>Data Framing</a></h2>
+        </span><a id='src-16' class='srclink' href='../../../src/simple_stream/src/frame/simple.rs.html#9-154' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h2 id='simleframe' class='section-header'><a href='#simleframe'>SimleFrame</a></h2>
 <pre class='rust rust-example-rendered'>
 <span class='number'>0</span>                   <span class='number'>1</span>                   <span class='number'>2</span>                   <span class='number'>3</span>
 <span class='number'>0</span> <span class='number'>1</span> <span class='number'>2</span> <span class='number'>3</span> <span class='number'>4</span> <span class='number'>5</span> <span class='number'>6</span> <span class='number'>7</span> <span class='number'>8</span> <span class='number'>9</span> <span class='number'>0</span> <span class='number'>1</span> <span class='number'>2</span> <span class='number'>3</span> <span class='number'>4</span> <span class='number'>5</span> <span class='number'>6</span> <span class='number'>7</span> <span class='number'>8</span> <span class='number'>9</span> <span class='number'>0</span> <span class='number'>1</span> <span class='number'>2</span> <span class='number'>3</span> <span class='number'>4</span> <span class='number'>5</span> <span class='number'>6</span> <span class='number'>7</span> <span class='number'>8</span> <span class='number'>9</span> <span class='number'>0</span>
@@ -60,15 +58,23 @@ message through streams.</p>
 <span class='op'>|</span>           <span class='ident'>Payload</span> <span class='ident'>Data</span> <span class='ident'>Continued</span>          <span class='op'>|</span>   <span class='ident'>Frame</span> <span class='ident'>End</span>   <span class='op'>|</span>
 <span class='op'>+</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>-</span><span class='op'>+</span>
 
-<span class='ident'>Start</span> <span class='ident'>Frame</span>:    <span class='number'>8</span> <span class='ident'>bits</span> (<span class='ident'>must</span> <span class='ident'>be</span> <span class='number'>0x01</span>)
+<span class='ident'>Start</span> <span class='ident'>Guard</span>:    <span class='number'>8</span> <span class='ident'>bits</span> (<span class='number'>0x01</span>)
 <span class='ident'>Payload</span> <span class='ident'>Len</span>:    <span class='number'>16</span> <span class='ident'>bits</span>
 <span class='ident'>Payload</span> <span class='ident'>Data</span>:   <span class='ident'>Payload</span> <span class='ident'>Len</span> <span class='ident'>bytes</span>
-<span class='ident'>End</span> <span class='ident'>Frame</span>:      <span class='number'>8</span> <span class='ident'>bits</span> (<span class='ident'>must</span> <span class='ident'>be</span> <span class='number'>0x17</span>)</pre>
+<span class='ident'>End</span> <span class='ident'>Guard</span>:      <span class='number'>8</span> <span class='ident'>bits</span> (<span class='number'>0x17</span>)</pre>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.SimpleFrame.html'
                                title='simple_stream::frame::simple::SimpleFrame'>SimpleFrame</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SimpleFrameBuilder.html'
+                               title='simple_stream::frame::simple::SimpleFrameBuilder'>SimpleFrameBuilder</a></td>
                         <td class='docblock short'>
                              
                         </td>

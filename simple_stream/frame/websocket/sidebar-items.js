@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FrameType",""],["OpType",""]],"struct":[["WebSocketFrame",""]]});
+initSidebarItems({"enum":[["FrameType",""],["OpType",""]],"struct":[["WebSocketFrame",""],["WebSocketFrameBuilder",""]]});
