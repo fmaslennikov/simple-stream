@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Secure",""]]});
+initSidebarItems({"struct":[["Secure","OpenSSL backed stream."]]});

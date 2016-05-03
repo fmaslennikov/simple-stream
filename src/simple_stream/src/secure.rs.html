@@ -286,6 +286,7 @@
 <span id="243">243</span>
 <span id="244">244</span>
 <span id="245">245</span>
+<span id="246">246</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -312,6 +313,7 @@
 <span class='kw'>const</span> <span class='ident'>BUF_SIZE</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>1024</span>;
 
 
+<span class='doccomment'>/// OpenSSL backed stream.</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Secure</span><span class='op'>&lt;</span><span class='ident'>S</span>, <span class='ident'>FB</span><span class='op'>&gt;</span> <span class='kw'>where</span>
     <span class='ident'>S</span>: <span class='ident'>Read</span> <span class='op'>+</span> <span class='ident'>Write</span>,

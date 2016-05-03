@@ -237,6 +237,7 @@
 <span id="194">194</span>
 <span id="195">195</span>
 <span id="196">196</span>
+<span id="197">197</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -261,6 +262,7 @@
 <span class='kw'>const</span> <span class='ident'>BUF_SIZE</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>1024</span>;
 
 
+<span class='doccomment'>/// Plain text stream.</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Plain</span><span class='op'>&lt;</span><span class='ident'>S</span>, <span class='ident'>FB</span><span class='op'>&gt;</span> <span class='kw'>where</span>
     <span class='ident'>S</span>: <span class='ident'>Read</span> <span class='op'>+</span> <span class='ident'>Write</span>,

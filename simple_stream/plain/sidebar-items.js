@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Plain",""]]});
+initSidebarItems({"struct":[["Plain","Plain text stream."]]});
