@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/nathan/.cargo/registry/src/github.com-88ac128001ac3a9a/errno-0.1.6/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/nathan/.cargo/registry/src/github.com-88ac128001ac3a9a/errno-0.1.7/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -59,6 +60,19 @@
 <span id="16">16</span>
 <span id="17">17</span>
 <span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Cross-platform interface to the `errno` variable.</span>
 
@@ -77,6 +91,19 @@
     <span class='kw'>let</span> <span class='ident'>x</span> <span class='op'>=</span> <span class='ident'>errno</span>();
     <span class='ident'>set_errno</span>(<span class='ident'>x</span>);
     <span class='kw'>let</span> _ <span class='op'>=</span> <span class='ident'>x</span>.<span class='ident'>to_string</span>();
+}
+
+<span class='attribute'>#[<span class='ident'>test</span>]</span>
+<span class='kw'>fn</span> <span class='ident'>check_description</span>() {
+    <span class='kw'>let</span> <span class='ident'>expect</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='macro'>cfg</span><span class='macro'>!</span>(<span class='ident'>windows</span>) {
+        <span class='string'>&quot;Incorrect function.&quot;</span>
+    } <span class='kw'>else</span> {
+        <span class='string'>&quot;Operation not permitted&quot;</span>
+    };
+
+    <span class='ident'>set_errno</span>(<span class='ident'>Errno</span>(<span class='number'>1</span>));
+
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>errno</span>().<span class='ident'>to_string</span>(), <span class='ident'>expect</span>);
 }
 </pre>
 </section>

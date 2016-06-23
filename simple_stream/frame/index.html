@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -43,10 +44,10 @@
 
     <section id='main' class="content mod">
 <h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>simple_stream</a>::<wbr><a class='mod' href=''>frame</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-14' class='srclink' href='../../src/simple_stream/src/frame/mod.rs.html#9-44' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-11' class='srclink' href='../../src/simple_stream/src/frame/mod.rs.html#9-49' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>The <code>simple_stream::fame</code> module contains Trait definitions and built-in types for coupling
 with a stream type to provide a structred way to send and receive message through streams.</p>
 
@@ -55,44 +56,80 @@ with a stream type to provide a structred way to send and receive message throug
 information has been received and that complete pieces of information are sent without
 fragmentation. A <code>FrameBuilder</code> is used by the stream types to construct a <code>Frame</code> from a
 chunk of bytes.</p>
-</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='mod' href='simple/index.html'
-                               title='simple_stream::frame::simple'>simple</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='mod' href='websocket/index.html'
-                               title='simple_stream::frame::websocket'>websocket</a></td>
-                        <td class='docblock short'>
-                             <p>The <code>frame::websocket</code> module provides <a href="https://tools.ietf.org/html/rfc6455">RFC-6465</a> support for websocket based
-streams. This module provides no support for the handshake part of the protocol, or any
-smarts about handling fragmentation messages. It simply encodes/decodes complete websocket
-frames.</p>
-                        </td>
-                    </tr>
-                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Checksum32Frame.html'
+                                  title='simple_stream::frame::Checksum32Frame'>Checksum32Frame</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Checksum32FrameBuilder.html'
+                                  title='simple_stream::frame::Checksum32FrameBuilder'>Checksum32FrameBuilder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.SimpleFrame.html'
+                                  title='simple_stream::frame::SimpleFrame'>SimpleFrame</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.SimpleFrameBuilder.html'
+                                  title='simple_stream::frame::SimpleFrameBuilder'>SimpleFrameBuilder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.WebSocketFrame.html'
+                                  title='simple_stream::frame::WebSocketFrame'>WebSocketFrame</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.WebSocketFrameBuilder.html'
+                                  title='simple_stream::frame::WebSocketFrameBuilder'>WebSocketFrameBuilder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='trait' href='trait.Frame.html'
-                               title='simple_stream::frame::Frame'>Frame</a></td>
-                        <td class='docblock short'>
-                             <p>The Frame trait allows for type construction/destruction to/from a chunk of bytes.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='trait' href='trait.FrameBuilder.html'
-                               title='simple_stream::frame::FrameBuilder'>FrameBuilder</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                </table></section>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.FrameType.html'
+                                  title='simple_stream::frame::FrameType'>FrameType</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.OpType.html'
+                                  title='simple_stream::frame::OpType'>OpType</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Frame.html'
+                                  title='simple_stream::frame::Frame'>Frame</a></td>
+                           <td class='docblock short'>
+                                <p>The Frame trait allows for type construction/destruction to/from a chunk of bytes.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.FrameBuilder.html'
+                                  title='simple_stream::frame::FrameBuilder'>FrameBuilder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

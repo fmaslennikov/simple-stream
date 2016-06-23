@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
@@ -43,10 +44,10 @@
 
     <section id='main' class="content mod">
 <h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>simple_stream</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-0' class='srclink' href='../src/simple_stream/src/lib.rs.html#9-118' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/simple_stream/src/lib.rs.html#9-111' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>The simple-stream crate provides simple abstraction building blocks over any type that
 implements [<code>std::io::Read</code>][std-io-read] + [<code>std::io::Write</code>][std-io-write].
 Coupled with a [<code>FrameBuilder</code>][framebuilder], it provides built-in types for plain text
@@ -102,73 +103,44 @@ using custom frames.</p>
 }</pre>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='mod' href='frame/index.html'
-                               title='simple_stream::frame'>frame</a></td>
-                        <td class='docblock short'>
-                             <p>The <code>simple_stream::fame</code> module contains Trait definitions and built-in types for coupling
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='frame/index.html'
+                                  title='simple_stream::frame'>frame</a></td>
+                           <td class='docblock short'>
+                                <p>The <code>simple_stream::fame</code> module contains Trait definitions and built-in types for coupling
 with a stream type to provide a structred way to send and receive message through streams.</p>
-                        </td>
-                    </tr>
-                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.Plain.html'
-                               title='simple_stream::Plain'>Plain</a></td>
-                        <td class='docblock short'>
-                             <p>Plain text stream.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.Secure.html'
-                               title='simple_stream::Secure'>Secure</a></td>
-                        <td class='docblock short'>
-                             <p>OpenSSL backed stream.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.Socket.html'
-                               title='simple_stream::Socket'>Socket</a></td>
-                        <td class='docblock short'>
-                             <p>Wrapper for file descriptor based sockets</p>
-                        </td>
-                    </tr>
-                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Plain.html'
+                                  title='simple_stream::Plain'>Plain</a></td>
+                           <td class='docblock short'>
+                                <p>Plain text stream.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Secure.html'
+                                  title='simple_stream::Secure'>Secure</a></td>
+                           <td class='docblock short'>
+                                <p>OpenSSL backed stream.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='trait' href='trait.Blocking.html'
-                               title='simple_stream::Blocking'>Blocking</a></td>
-                        <td class='docblock short'>
-                             <p>The <code>Blocking</code> trait provides method definitions for use with blocking streams.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='trait' href='trait.NonBlocking.html'
-                               title='simple_stream::NonBlocking'>NonBlocking</a></td>
-                        <td class='docblock short'>
-                             <p>THe <code>NonBlocking</code> trait provides method definitions for use with non-blocking streams.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='trait' href='trait.SocketOptions.html'
-                               title='simple_stream::SocketOptions'>SocketOptions</a></td>
-                        <td class='docblock short'>
-                             <p>The <code>SocketOptions</code> trait allows for various socket level settings.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='trait' href='trait.TcpOptions.html'
-                               title='simple_stream::TcpOptions'>TcpOptions</a></td>
-                        <td class='docblock short'>
-                             <p>The <code>TcpOptions</code> trait allows for various TCP level settings.</p>
-                        </td>
-                    </tr>
-                </table></section>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Blocking.html'
+                                  title='simple_stream::Blocking'>Blocking</a></td>
+                           <td class='docblock short'>
+                                <p>The <code>Blocking</code> trait provides method definitions for use with blocking streams.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.NonBlocking.html'
+                                  title='simple_stream::NonBlocking'>NonBlocking</a></td>
+                           <td class='docblock short'>
+                                <p>The <code>NonBlocking</code> trait provides method definitions for use with non-blocking streams.</p>
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

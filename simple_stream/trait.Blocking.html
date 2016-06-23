@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
@@ -43,10 +44,10 @@
 
     <section id='main' class="content trait">
 <h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>simple_stream</a>::<wbr><a class='trait' href=''>Blocking</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-1187' class='srclink' href='../src/simple_stream/src/lib.rs.html#89-96' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-976' class='srclink' href='../src/simple_stream/src/lib.rs.html#82-89' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Blocking {
     fn <a href='#tymethod.b_recv' class='fnname'>b_recv</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a>&gt;, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;;
     fn <a href='#tymethod.b_send' class='fnname'>b_send</a>(&amp;mut self, frame: &amp;<a class='trait' href='../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;;
@@ -64,8 +65,8 @@ or an <code>std::io::Error</code> has occurred.</p>
     <li><code>impl&lt;S, FB&gt; <a class='trait' href='../simple_stream/trait.Blocking.html' title='simple_stream::Blocking'>Blocking</a> for <a class='struct' href='../simple_stream/struct.Plain.html' title='simple_stream::Plain'>Plain</a>&lt;S, FB&gt; <span class='where'>where S: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Write.html' title='std::io::Write'>Write</a>, FB: <a class='trait' href='../simple_stream/frame/trait.FrameBuilder.html' title='simple_stream::frame::FrameBuilder'>FrameBuilder</a></span></code></li>
 <li><code>impl&lt;S, FB&gt; <a class='trait' href='../simple_stream/trait.Blocking.html' title='simple_stream::Blocking'>Blocking</a> for <a class='struct' href='../simple_stream/struct.Secure.html' title='simple_stream::Secure'>Secure</a>&lt;S, FB&gt; <span class='where'>where S: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Write.html' title='std::io::Write'>Write</a>, FB: <a class='trait' href='../simple_stream/frame/trait.FrameBuilder.html' title='simple_stream::frame::FrameBuilder'>FrameBuilder</a></span></code></li>
 </ul><script type="text/javascript" async
-                              src="../implementors/simple_stream/trait.Blocking.js">
-                      </script></section>
+                         src="../implementors/simple_stream/trait.Blocking.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

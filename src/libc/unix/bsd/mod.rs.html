@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/nathan/.cargo/registry/src/github.com-88ac128001ac3a9a/libc-0.2.10/src/unix/bsd/mod.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/nathan/.cargo/registry/src/github.com-88ac128001ac3a9a/libc-0.2.12/src/unix/bsd/mod.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>mod.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
 
     <link rel="shortcut icon" href="https://doc.rust-lang.org/favicon.ico">
     
@@ -405,6 +406,18 @@
 <span id="362">362</span>
 <span id="363">363</span>
 <span id="364">364</span>
+<span id="365">365</span>
+<span id="366">366</span>
+<span id="367">367</span>
+<span id="368">368</span>
+<span id="369">369</span>
+<span id="370">370</span>
+<span id="371">371</span>
+<span id="372">372</span>
+<span id="373">373</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>dox</span>::<span class='ident'>mem</span>;
 
@@ -571,6 +584,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGVTALRM</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>26</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGPROF</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>27</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGWINCH</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>28</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGINFO</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>29</span>;
 
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIG_SETMASK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIG_BLOCK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -580,9 +594,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IPV6_V6ONLY</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>27</span>;
 
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ST_RDONLY</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CTL_HW</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HW_NCPU</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>3</span>;
 
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EV_ADD</span>: ::<span class='ident'>uint16_t</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EV_CLEAR</span>: ::<span class='ident'>uint16_t</span> <span class='op'>=</span> <span class='number'>0x20</span>;
@@ -700,6 +711,13 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RTLD_NOW</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RTLD_DEFAULT</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>2isize</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LOG_CRON</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>9</span> <span class='op'>&lt;&lt;</span> <span class='number'>3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LOG_AUTHPRIV</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10</span> <span class='op'>&lt;&lt;</span> <span class='number'>3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LOG_FTP</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>11</span> <span class='op'>&lt;&lt;</span> <span class='number'>3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LOG_PERROR</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x20</span>;
+
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PIPE_BUF</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>512</span>;
+
 <span class='macro'>f</span><span class='macro'>!</span> {
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>FD_CLR</span>(<span class='ident'>fd</span>: ::<span class='ident'>c_int</span>, <span class='ident'>set</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fd_set</span>) <span class='op'>-&gt;</span> () {
         <span class='kw'>let</span> <span class='ident'>bits</span> <span class='op'>=</span> <span class='ident'>mem</span>::<span class='ident'>size_of_val</span>(<span class='kw-2'>&amp;</span>(<span class='op'>*</span><span class='ident'>set</span>).<span class='ident'>fds_bits</span>[<span class='number'>0</span>]) <span class='op'>*</span> <span class='number'>8</span>;
@@ -727,16 +745,20 @@
         }
     }
 
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WTERMSIG</span>(<span class='ident'>status</span>: ::<span class='ident'>c_int</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span> {
+        <span class='ident'>status</span> <span class='kw-2'>&amp;</span> <span class='number'>0o177</span>
+    }
+
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WIFEXITED</span>(<span class='ident'>status</span>: ::<span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-        (<span class='ident'>status</span> <span class='kw-2'>&amp;</span> <span class='number'>0x7f</span>) <span class='op'>==</span> <span class='number'>0</span>
+        (<span class='ident'>status</span> <span class='kw-2'>&amp;</span> <span class='number'>0o177</span>) <span class='op'>==</span> <span class='number'>0</span>
     }
 
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WEXITSTATUS</span>(<span class='ident'>status</span>: ::<span class='ident'>c_int</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span> {
         <span class='ident'>status</span> <span class='op'>&gt;&gt;</span> <span class='number'>8</span>
     }
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WTERMSIG</span>(<span class='ident'>status</span>: ::<span class='ident'>c_int</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span> {
-        <span class='ident'>status</span> <span class='kw-2'>&amp;</span> <span class='number'>0o177</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WCOREDUMP</span>(<span class='ident'>status</span>: ::<span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+        (<span class='ident'>status</span> <span class='kw-2'>&amp;</span> <span class='number'>0o200</span>) <span class='op'>!=</span> <span class='number'>0</span>
     }
 }
 
@@ -753,6 +775,9 @@
                       <span class='ident'>buf</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
                       <span class='ident'>buflen</span>: ::<span class='ident'>size_t</span>,
                       <span class='ident'>result</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>passwd</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>getprogname</span>() <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>c_char</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>setprogname</span>(<span class='ident'>name</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>c_char</span>);
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>getloadavg</span>(<span class='ident'>loadavg</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_double</span>, <span class='ident'>nelem</span>: ::<span class='ident'>c_int</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span>;
 }
 
 <span class='macro'>cfg_if</span><span class='macro'>!</span> {

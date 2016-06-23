@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -43,10 +44,10 @@
 
     <section id='main' class="content trait">
 <h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>simple_stream</a>::<wbr><a href='index.html'>frame</a>::<wbr><a class='trait' href=''>Frame</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-675' class='srclink' href='../../src/simple_stream/src/frame/mod.rs.html#24-37' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-740' class='srclink' href='../../src/simple_stream/src/frame/mod.rs.html#29-42' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Frame: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> {
     fn <a href='#tymethod.to_bytes' class='fnname'>to_bytes</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;;
     fn <a href='#tymethod.payload' class='fnname'>payload</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;;
@@ -67,11 +68,12 @@ type the pointer was cast to (E.g. by calling `Box::from_raw(ptr)&#39;).</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl <a class='trait' href='../../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a> for <a class='struct' href='../../simple_stream/frame/simple/struct.SimpleFrame.html' title='simple_stream::frame::simple::SimpleFrame'>SimpleFrame</a></code></li>
-<li><code>impl <a class='trait' href='../../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a> for <a class='struct' href='../../simple_stream/frame/websocket/struct.WebSocketFrame.html' title='simple_stream::frame::websocket::WebSocketFrame'>WebSocketFrame</a></code></li>
+    <li><code>impl <a class='trait' href='../../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a> for <a class='struct' href='../../simple_stream/frame/struct.SimpleFrame.html' title='simple_stream::frame::SimpleFrame'>SimpleFrame</a></code></li>
+<li><code>impl <a class='trait' href='../../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a> for <a class='struct' href='../../simple_stream/frame/struct.WebSocketFrame.html' title='simple_stream::frame::WebSocketFrame'>WebSocketFrame</a></code></li>
+<li><code>impl <a class='trait' href='../../simple_stream/frame/trait.Frame.html' title='simple_stream::frame::Frame'>Frame</a> for <a class='struct' href='../../simple_stream/frame/struct.Checksum32Frame.html' title='simple_stream::frame::Checksum32Frame'>Checksum32Frame</a></code></li>
 </ul><script type="text/javascript" async
-                              src="../../implementors/simple_stream/frame/trait.Frame.js">
-                      </script></section>
+                         src="../../implementors/simple_stream/frame/trait.Frame.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

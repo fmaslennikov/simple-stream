@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
 
     
     
@@ -85,6 +86,11 @@
 <span id="42">42</span>
 <span id="43">43</span>
 <span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -105,8 +111,13 @@
 <span class='doccomment'>//! chunk of bytes.</span>
 
 
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>simple</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>websocket</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>simple</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>websocket</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>checksum32</span>::<span class='op'>*</span>;
+
+<span class='kw'>mod</span> <span class='ident'>simple</span>;
+<span class='kw'>mod</span> <span class='ident'>websocket</span>;
+<span class='kw'>mod</span> <span class='ident'>checksum32</span>;
 
 <span class='doccomment'>/// The Frame trait allows for type construction/destruction to/from a chunk of bytes.</span>
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>Frame</span>: <span class='ident'>Sync</span> <span class='op'>+</span> <span class='ident'>Send</span> {

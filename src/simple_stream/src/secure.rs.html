@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
 
     
     
@@ -262,31 +263,6 @@
 <span id="219">219</span>
 <span id="220">220</span>
 <span id="221">221</span>
-<span id="222">222</span>
-<span id="223">223</span>
-<span id="224">224</span>
-<span id="225">225</span>
-<span id="226">226</span>
-<span id="227">227</span>
-<span id="228">228</span>
-<span id="229">229</span>
-<span id="230">230</span>
-<span id="231">231</span>
-<span id="232">232</span>
-<span id="233">233</span>
-<span id="234">234</span>
-<span id="235">235</span>
-<span id="236">236</span>
-<span id="237">237</span>
-<span id="238">238</span>
-<span id="239">239</span>
-<span id="240">240</span>
-<span id="241">241</span>
-<span id="242">242</span>
-<span id="243">243</span>
-<span id="244">244</span>
-<span id="245">245</span>
-<span id="246">246</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright 2015 Nathan Sizemore &lt;nathanrsizemore@gmail.com&gt;</span>
 <span class='comment'>//</span>
@@ -301,8 +277,6 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>RawFd</span>, <span class='ident'>AsRawFd</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='ident'>Read</span>, <span class='ident'>Write</span>, <span class='ident'>Error</span>, <span class='ident'>ErrorKind</span>};
 
-<span class='kw'>use</span> <span class='ident'>libc</span>;
-<span class='kw'>use</span> <span class='ident'>errno</span>::<span class='ident'>errno</span>;
 <span class='kw'>use</span> <span class='ident'>openssl</span>::<span class='ident'>ssl</span>::<span class='ident'>SslStream</span>;
 <span class='kw'>use</span> <span class='ident'>openssl</span>::<span class='ident'>ssl</span>::<span class='ident'>error</span>::<span class='ident'>Error</span> <span class='kw'>as</span> <span class='ident'>SslStreamError</span>;
 
@@ -345,6 +319,15 @@
     <span class='ident'>FB</span>: <span class='ident'>FrameBuilder</span>
 {
     <span class='kw'>fn</span> <span class='ident'>b_recv</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>Frame</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
+        <span class='comment'>// Empty anything that is in our buffer already from any previous reads</span>
+        <span class='kw'>match</span> <span class='ident'>FB</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>.<span class='ident'>rx_buf</span>) {
+            <span class='prelude-val'>Some</span>(<span class='ident'>boxed_frame</span>) <span class='op'>=&gt;</span> {
+                <span class='macro'>debug</span><span class='macro'>!</span>(<span class='string'>&quot;Complete frame read&quot;</span>);
+                <span class='kw'>return</span> <span class='prelude-val'>Ok</span>(<span class='ident'>boxed_frame</span>);
+            }
+            <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> { }
+        };
+
         <span class='kw'>loop</span> {
             <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buf</span> <span class='op'>=</span> [<span class='number'>0u8</span>; <span class='ident'>BUF_SIZE</span>];
             <span class='kw'>let</span> <span class='ident'>read_result</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>inner</span>.<span class='ident'>read</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buf</span>);
@@ -359,6 +342,7 @@
 
             <span class='kw'>match</span> <span class='ident'>FB</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>.<span class='ident'>rx_buf</span>) {
                 <span class='prelude-val'>Some</span>(<span class='ident'>boxed_frame</span>) <span class='op'>=&gt;</span> {
+                    <span class='macro'>debug</span><span class='macro'>!</span>(<span class='string'>&quot;Complete frame read&quot;</span>);
                     <span class='kw'>return</span> <span class='prelude-val'>Ok</span>(<span class='ident'>boxed_frame</span>);
                 }
                 <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> { }
@@ -499,39 +483,6 @@
 {
     <span class='kw'>fn</span> <span class='ident'>as_raw_fd</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>RawFd</span> {
         <span class='self'>self</span>.<span class='ident'>inner</span>.<span class='ident'>as_raw_fd</span>()
-    }
-}
-
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>S</span>, <span class='ident'>FB</span><span class='op'>&gt;</span> <span class='ident'>Secure</span><span class='op'>&lt;</span><span class='ident'>S</span>, <span class='ident'>FB</span><span class='op'>&gt;</span> <span class='kw'>where</span>
-    <span class='ident'>S</span>: <span class='ident'>Read</span> <span class='op'>+</span> <span class='ident'>Write</span> <span class='op'>+</span> <span class='ident'>AsRawFd</span>,
-    <span class='ident'>FB</span>: <span class='ident'>FrameBuilder</span>
-{
-    <span class='doccomment'>/// Calls `libc::shutdown` on the underlying `RawFd`</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>shutdown</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>Error</span><span class='op'>&gt;</span> {
-        <span class='macro'>trace</span><span class='macro'>!</span>(<span class='string'>&quot;Shutting down stream&quot;</span>);
-        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='kw'>unsafe</span> {
-            <span class='ident'>libc</span>::<span class='ident'>shutdown</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>libc</span>::<span class='ident'>SHUT_RDWR</span>)
-        };
-
-        <span class='kw'>if</span> <span class='ident'>result</span> <span class='op'>&lt;</span> <span class='number'>0</span> {
-            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>from_raw_os_error</span>(<span class='ident'>errno</span>().<span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>i32</span>));
-        }
-
-        <span class='prelude-val'>Ok</span>(())
-    }
-
-    <span class='doccomment'>/// Calls `lib::close` on the underlying `RawFd`</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>close</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>Error</span><span class='op'>&gt;</span> {
-        <span class='macro'>trace</span><span class='macro'>!</span>(<span class='string'>&quot;Closing stream&quot;</span>);
-        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='kw'>unsafe</span> {
-            <span class='ident'>libc</span>::<span class='ident'>close</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>())
-        };
-
-        <span class='kw'>if</span> <span class='ident'>result</span> <span class='op'>&lt;</span> <span class='number'>0</span> {
-            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>from_raw_os_error</span>(<span class='ident'>errno</span>().<span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>i32</span>));
-        }
-
-        <span class='prelude-val'>Ok</span>(())
     }
 }
 </pre>
